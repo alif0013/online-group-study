@@ -74,7 +74,7 @@ const Navbar = () => {
                     user ? <>
 
                         <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
-                            <div className="avatar online hidden md:mr-5 md:block">
+                            <div className="avatar online hidden md:mr-5 md:block justify-end">
                                 <div className="md:w-[50px] rounded-full">
                                     <img src={user.photoURL} />
                                 </div>

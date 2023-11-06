@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
+
 
 const CreatAsignment = () => {
 
     const [selectedLevel, setSelectedLevel] = useState(''); // Initialize state for the selected level
+    // const [startDate, setStartDate] = useState(new Date());
 
     const handleAddAssignment = e => {
         e.preventDefault();
@@ -11,12 +16,33 @@ const CreatAsignment = () => {
         const description = form.description.value;
         const marks = form.marks.value;
         const due = form.due.value;
+        // const due = startDate;
         const level = selectedLevel; // Use the selectedLevel from state
         const photo = form.photo.value;
 
         const newAsignment = { title, description, marks, due, level, photo }
-
         console.log(newAsignment);
+        
+           // send data to the server
+           fetch('http://localhost:5000/asignments',{
+            method: 'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newAsignment)
+            
+           })
+         
+           .then(res => res.json())
+           .then(data =>{
+            console.log(data);
+            if(data.insertedId){
+                toast.success('Asignment Created Successfully!')
+            }
+           })
+         
+
+
     }
 
     const handleLevelChange = e => {
@@ -41,8 +67,11 @@ const CreatAsignment = () => {
                 </div>
                 <div className='mt-3'>
                     <input type="text" name='marks' placeholder="Marks" className="input input-bordered w-full max-w-xs mr-5 mb-3" />
-                    <input type="text" name='due' placeholder="Due Date" className="input input-bordered w-full max-w-xs" />
+                    <input type="date" name='due'  placeholder="Due Date" className="input input-bordered w-full max-w-xs" />
 
+                 
+                    {/* <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /> */}
+                
                 </div>
                 <div className='mt-3'>
                     {/* <input type="text" name='level' placeholder="Easy, Medium, Hard" className="input input-bordered w-full max-w-xs mr-5 mb-3" /> */}
