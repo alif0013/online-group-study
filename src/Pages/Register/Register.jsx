@@ -1,20 +1,83 @@
+import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
-
+import { AuthContext } from '../../Provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 
 
 const Register = () => {
+
+    const { creatUser } = useContext(AuthContext)
+
+    const handleRegister = (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(name, photoURL, email, password);
+
+        // // password validation 
+
+        if (password.length < 6) {
+            toast.error('Password should be at least 6 characters or longer');
+            return;
+
+        }
+
+        // else if (!/[A-Z]/.test(password)) {
+        //     toast.error('Your password should have at least one upper case characters.')
+        //     return;
+        // }
+        // else if (!/[^A-Za-z0-9]/.test(password)) {
+        //     toast.error('Your password should have at least one special character.');
+        //     return;
+        // }
+
+
+
+        // Creat user by passing email and password
+        creatUser(email, password)
+
+            .then(res => {
+                console.log(res.user)
+                toast.success('Registration successfully');
+
+                // update profile
+                updateProfile(res.user, {
+                    displayName: name,
+                    photoURL: photoURL,
+                })
+                    .then(() => console.log('profile updated'))
+                    .catch()
+
+
+
+            })
+            .catch(error => {
+
+                toast.error('Registration failed: ' + error.message);
+
+            })
+
+
+
+    }
+
     return (
         <div>
-              <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold mb-2">Sign Up Now!</h1>
 
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        {/* onSubmit={handleRegister}  */}
-                        <form className="card-body">
+
+                        <form onSubmit={handleRegister} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>

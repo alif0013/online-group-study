@@ -7,11 +7,13 @@ import Asignments from '../Pages/Asignments/Asignments/Asignments';
 import CreatAsignment from '../Pages/creatAsignment/CreatAsignment';
 import Myasignnment from '../Pages/myAsignment/Myasignnment';
 import SubmittedAsignment from '../Pages/submittedAsignment/SubmittedAsignment';
+import ErrorPage from '../errorPage/ErrorPage';
 
 const myCreatedRoutes = createBrowserRouter([
     {
         path: '/',
         element: <MainLayouts></MainLayouts>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 index: true,
@@ -32,19 +34,20 @@ const myCreatedRoutes = createBrowserRouter([
             {
                 path: 'submittedasignment',
                 element: <SubmittedAsignment></SubmittedAsignment>
+            },
+            {
+                //out side of children
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             }
         ],
     },
 
-    {
-        //out side of children
-        path: '/login',
-        element: <Login></Login>
-    },
-    {
-        path: '/register',
-        element: <Register></Register>
-    }
+    
 
 ])
 
