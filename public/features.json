@@ -1,0 +1,39 @@
+[
+    {
+      "id": "1",
+      "img": "https://uploads-ssl.webflow.com/60890f6ac44206aef9237eb4/6389f415538b8f13f2d86db6_Solo%20Study.svg",
+      "title": "Own Study Universe",
+      "description": "Create your very own study room with atmospheric backgrounds, personal timers, and goals."
+    },
+    {
+      "id": "2",
+      "img": "https://uploads-ssl.webflow.com/60890f6ac44206aef9237eb4/6389f4154e6ab3104c6f5078_Group%20study.svg",
+      "title": "Group Study Rooms",
+      "description": "Join motivated students from all over the world to boost your productivity and find your study flow."
+    },
+    {
+      "id": "3",
+      "img": "https://uploads-ssl.webflow.com/60890f6ac44206aef9237eb4/6389f413ac476c729c4e3376_Help.svg",
+      "title": "Free Tutor Help!",
+      "description": "Feeling stuck? Just raise your hand and one of our expert community tutors will jump in and help."
+    },
+    {
+      "id": "4",
+      "img": "https://uploads-ssl.webflow.com/60890f6ac44206aef9237eb4/6389f41542ab4a1897c2bd59_mindfulness.svg",
+      "title": "Mindfulness",
+      "description": "Balance is crucial check out our mindfulness exercises to give your mind a breather."
+    },
+    {
+      "id": "5",
+      "img": "https://uploads-ssl.webflow.com/60890f6ac44206aef9237eb4/6389f41460f36b5497722afd_events.svg",
+      "title": "Community Events",
+      "description": "Our live events tackle everything from productivity courses to career advice."
+    },
+    {
+      "id": "6",
+      "img": "https://uploads-ssl.webflow.com/60890f6ac44206aef9237eb4/6389f4178f2fdffb6aa635ef_dashboard.svg",
+      "title": "Study Stats",
+      "description": "See your progress every day in your Stats and on the community leaderboard."
+    }
+   
+  ]

@@ -3,7 +3,7 @@ import faq from '../../../assets/faq.svg'
 const FaqSection = () => {
     
     return (
-        <div className='lg:flex justify-around'>
+        <div className='px-5 lg:flex justify-around'>
             <div className='lg:w-1/2'>
                 <div className="collapse collapse-plus bg-base-200 mb-4">
                     <input type="radio" name="my-accordion-3" checked="checked" />
@@ -48,7 +48,7 @@ const FaqSection = () => {
             </div>
 
             <div className='lg:w-1/2'>
-                <img src={faq} alt="img" />
+                <img className='w-[390px] md:w-full' src={faq} alt="img" />
             </div>
         </div>
     );

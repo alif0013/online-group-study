@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext)
+
+    // sign out functionalities
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                toast.success('you logged Out successfully');
+            })
+            .catch(err => {
+                toast.error(err.message)
+            })
+    }
+
+    // console.log('User:', user);
+
+
 
 
     const navLinks = <>
@@ -43,28 +62,32 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                   {navLinks}
+                    {navLinks}
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login' className="px-10 py-2 rounded bg-gradient-to-r from-[#4A00E0] to-blue-500 text-white lg:text-lg font-semibold">Login</Link>
-                {/* {
+
+                {/* <Link to='/login' className="px-10 py-2 rounded bg-gradient-to-r from-[#4A00E0] to-blue-500 text-white lg:text-lg font-semibold">Login</Link> */}
+
+                {
                     user ? <>
 
-                        <div>
+                        <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
                             <div className="avatar online hidden md:mr-5 md:block">
-                                <div className="w-[50px] rounded-full">
+                                <div className="md:w-[50px] rounded-full">
                                     <img src={user.photoURL} />
                                 </div>
                             </div>
                         </div>
 
-                        <span className='hidden md:mr-5 md:block'>{user.displayName}</span>
+                        {/* <span className='hidden md:mr-5 md:block'>{user.displayName}</span> */}
+
                         <Link to='/' onClick={handleLogOut} className="px-10 py-2 rounded bg-gradient-to-r from-[#4A00E0] to-blue-500 text-white lg:text-lg font-semibold">LogOut</Link>
+
                     </>
                         :
                         <Link to='/login' className="px-10 py-2 rounded bg-gradient-to-r from-[#4A00E0] to-blue-500 text-white lg:text-lg font-semibold">Login</Link>
-                } */}
+                }
             </div>
         </div>
     );
