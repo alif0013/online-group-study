@@ -1,15 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 
 
 
 const Login = () => {
+
+    const {signInWithGoogle} = useContext(AuthContext)
+
+    // const location = useLocation();
+    // const navigate = useNavigate();
+
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(res => {
+                toast.success('You logged in successfully');
+                // navigate(location?.state ? location.state : '/');
+            })
+            .catch(err => console.log(err))
+    }
+
+
+
+
+
+
     return (
         <div className="w-full mx-auto mt-10 max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-      {/*  onSubmit={handleLogin} */}
-                <form className="space-y-6">
+    
+                <form onSubmit={handleLogin} className="space-y-6">
                     <h5 className="text-xl font-medium text-gray-900 dark:text-white">Please Login</h5>
                     <div>
                         <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
@@ -33,14 +56,11 @@ const Login = () => {
                         Not registered? <Link to="/register" className="text-blue-700 hover:underline dark:text-blue-500">Create account</Link>
                     </div>
                     <hr />
-                    <div className='flex gap-3 btn'>
+                    
+                    <div onClick={handleGoogleSignIn} className='flex gap-3 btn'>
                         <FcGoogle></FcGoogle>
                         <h2>Log In With Google</h2>
                     </div>
-                    {/* <div onClick={handleGoogleSignIn} className='flex gap-3 btn'>
-                        <FcGoogle></FcGoogle>
-                        <h2>Log In With Google</h2>
-                    </div> */}
 
 
                 </form>
