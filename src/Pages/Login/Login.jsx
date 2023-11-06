@@ -9,7 +9,7 @@ import toast from 'react-hot-toast';
 
 const Login = () => {
 
-    const {signInWithGoogle} = useContext(AuthContext)
+    const {signInWithGoogle, signIn} = useContext(AuthContext)
 
     // const location = useLocation();
     // const navigate = useNavigate();
@@ -25,11 +25,40 @@ const Login = () => {
     }
 
 
+    //sign in with email and password
 
+    const handleLogin = (e) =>{
+        e.preventDefault()
+
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email')
+        const password = form.get('password')
+        // console.log(email, password);
+
+        
+        // login user by created user and pass  
+        signIn(email, password)
+            .then(res => {
+
+                console.log(res.user);
+                toast.success('You logged in successfully');
+
+                // private route navigate after login
+                // navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+
+                toast.error("your email and password doesn't match please check and try again!")
+                // toast.error('Login failed: ' + error.message);
+
+            })
+
+    }
 
 
 
     return (
+
         <div className="w-full mx-auto mt-10 max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
     
                 <form onSubmit={handleLogin} className="space-y-6">
