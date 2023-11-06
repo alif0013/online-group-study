@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import logo from '../../assets/logo.svg'
 import toast from 'react-hot-toast';
 
 const Navbar = () => {
@@ -34,7 +35,7 @@ const Navbar = () => {
 
         <li><NavLink to='/creatasignment' className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "underline text-[#EC272E]" : ""
-        }>Creat Asignment</NavLink></li>
+        }>Create Asignment</NavLink></li>
 
         <li><NavLink to='/myasignment' className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "underline text-[#EC272E]" : ""
@@ -58,7 +59,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Study Online</a>
+                <a className="btn btn-ghost normal-case text-xl"><img src={logo} alt="" /> Study Online</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

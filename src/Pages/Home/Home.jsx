@@ -19,9 +19,9 @@ const Home = () => {
     }, [])
     return (
         <div>
-           <div>
-           <HomeBanner></HomeBanner>
-           </div>
+            <div>
+                <HomeBanner></HomeBanner>
+            </div>
             {/* feature section */}
 
             <div className='text-center py-10 mt-8'>
@@ -36,16 +36,19 @@ const Home = () => {
             </div>
 
 
+            {/* What are you waiting for?
+            Join the study team! */}
+
             {/* faq section */}
             <div className='mt-10'>
 
 
-            <div className='text-center py-10 mt-8'>
-                <h1 className='text-[35px] md:text-5xl font-bold pb-10'>Frequently Asked Question</h1>
-               
-            </div>
+                <div className='text-center py-10 mt-8'>
+                    <h1 className='text-[35px] md:text-5xl font-bold pb-10'>Frequently Asked Question</h1>
 
-            <FaqSection></FaqSection>
+                </div>
+
+                <FaqSection></FaqSection>
             </div>
         </div>
     );
