@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const ViewAsignment = () => {
+    const { user } = useContext(AuthContext)
+    const userEmail = user.email;  
     const asignments = useLoaderData()
 
     const { _id, title, photo, description, marks, level, due, email } = asignments;
 
+    const handleTakeAsignment = () =>{
+        // send data to the server
+        fetch('http://localhost:5000/myAsignments',{
+            method: 'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(asignments)
+
+           })
+           .then(res => res.json())
+           .then(data =>{
+            console.log(data);
+            if(data.insertedId){
+                toast.success('Product added Successfully!')
+            }
+           })
+
+
+}
+    
     return (
         <div className='px-5'>
             <div className='mt-16 md:w-[500px] mx-auto border shadow-md mb-20'>
@@ -25,7 +50,7 @@ const ViewAsignment = () => {
 
                         <div className="card-actions justify-center">
 
-                            <button className="px-8 mt-5 py-2 rounded bg-gradient-to-r from-[#4A00E0] to-blue-500 text-white lg:text-lg font-semibold">Take Asignment</button>
+                            <button onClick={handleTakeAsignment} className="px-8 mt-5 py-2 rounded bg-gradient-to-r from-[#4A00E0] to-blue-500 text-white lg:text-lg font-semibold">Take Asignment</button>
 
                         </div>
                     </div>
