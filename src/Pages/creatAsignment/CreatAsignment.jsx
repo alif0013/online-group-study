@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../Provider/AuthProvider';
 // import DatePicker from "react-datepicker";
 // import "react-datepicker/dist/react-datepicker.css";
 
 
 const CreatAsignment = () => {
-
+    const { user } = useContext(AuthContext)
     const [selectedLevel, setSelectedLevel] = useState(''); // Initialize state for the selected level
     // const [startDate, setStartDate] = useState(new Date());
-
+    
     const handleAddAssignment = e => {
         e.preventDefault();
         const form = e.target;
@@ -17,10 +18,11 @@ const CreatAsignment = () => {
         const marks = form.marks.value;
         const due = form.due.value;
         // const due = startDate;
+        const email = user.email;  //AuthContext theke asa user email
         const level = selectedLevel; // Use the selectedLevel from state
         const photo = form.photo.value;
 
-        const newAsignment = { title, description, marks, due, level, photo }
+        const newAsignment = { title, description,email, marks, due, level, photo }
         console.log(newAsignment);
         
            // send data to the server
