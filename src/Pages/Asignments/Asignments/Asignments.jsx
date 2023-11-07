@@ -90,7 +90,8 @@ const Asignments = () => {
                                 <div className="card-actions grid grid-cols-3">
                                     <button onClick={() => handledelete(asignment._id)} className="btn btn-outline border-[red]">Delete</button>
 
-                                    <button className="btn btn-outline border-[green]">Update</button>
+
+                                  <Link to={`/update/${asignment._id}`}><button className="btn btn-outline border-[green]">Edit</button> </Link>  
 
                                     <Link to={`/details/${asignment._id}`}><button className="btn btn-outline border-[blue]">View</button> </Link>
 
