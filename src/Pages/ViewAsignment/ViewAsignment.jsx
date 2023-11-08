@@ -24,7 +24,7 @@ const ViewAsignment = () => {
            .then(data =>{
             console.log(data);
             if(data.insertedId){
-                toast.success('Product added Successfully!')
+                toast.success('Asignment added Successfully!')
             }
            })
 

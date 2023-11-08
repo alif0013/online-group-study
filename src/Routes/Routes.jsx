@@ -10,6 +10,7 @@ import SubmittedAsignment from '../Pages/submittedAsignment/SubmittedAsignment';
 import ErrorPage from '../errorPage/ErrorPage';
 import ViewAsignment from '../Pages/ViewAsignment/ViewAsignment';
 import UpdateAsignment from '../Pages/updateAsignment/UpdateAsignment';
+import PrivateRoutes from './PrivateRoutes';
 
 const myCreatedRoutes = createBrowserRouter([
     {
@@ -32,7 +33,7 @@ const myCreatedRoutes = createBrowserRouter([
             },
             {
                 path: 'myasignment',
-                element: <Myasignnment></Myasignnment>
+                element: <PrivateRoutes><Myasignnment></Myasignnment></PrivateRoutes>
             },
             {
                 path: 'submittedasignment',
