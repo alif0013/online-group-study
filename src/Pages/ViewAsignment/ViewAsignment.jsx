@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const ViewAsignment = () => {
@@ -50,7 +50,7 @@ const ViewAsignment = () => {
 
                         <div className="card-actions justify-center">
 
-                            <button onClick={handleTakeAsignment} className="px-8 mt-5 py-2 rounded bg-gradient-to-r from-[#4A00E0] to-blue-500 text-white lg:text-lg font-semibold">Take Asignment</button>
+                          <Link to='/submit'>  <button onClick={handleTakeAsignment} className="px-8 mt-5 py-2 rounded bg-gradient-to-r from-[#4A00E0] to-blue-500 text-white lg:text-lg font-semibold">Take Asignment</button></Link>
 
                         </div>
                     </div>

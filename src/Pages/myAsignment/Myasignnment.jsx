@@ -17,7 +17,9 @@ const Myasignnment = () => {
 
     return (
         <div>
-            my asignment : {myAsignment.length}
+          <div>
+            <h1 className='font-bold text-4xl text-center my-10'>My Asignment</h1>
+          </div>
 
             <div>
                 <div className="overflow-x-auto">
@@ -25,7 +27,7 @@ const Myasignnment = () => {
                         {/* head */}
                         <thead>
                             <tr>
-                                <th></th>
+                          
                                 <th>Title</th>
                                 <th>Email</th>
                                 <th>Marks</th>
@@ -39,11 +41,13 @@ const Myasignnment = () => {
                            {
                             myAsignment.map(asignment =><>
                              <tr>
-                                <th>1</th>
+                                
                                 <td>{asignment.title}</td>
                                 <td>{asignment.email}</td>
                                 <td>{asignment.marks}</td>
                                 <td>Pending</td>
+                                <td>comming</td>
+                                <td>waiting</td>
                                 
                             </tr>
                             </>)

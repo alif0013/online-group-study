@@ -11,6 +11,7 @@ import ErrorPage from '../errorPage/ErrorPage';
 import ViewAsignment from '../Pages/ViewAsignment/ViewAsignment';
 import UpdateAsignment from '../Pages/updateAsignment/UpdateAsignment';
 import PrivateRoutes from './PrivateRoutes';
+import Submit from '../Pages/Submit/Submit';
 
 const myCreatedRoutes = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ const myCreatedRoutes = createBrowserRouter([
                 path: '/update/:id',
                 element: <UpdateAsignment></UpdateAsignment>,
                 loader: ({params}) => fetch(`http://localhost:5000/asignments/${params.id}`)
+            },
+            {
+                path: '/submit',
+                element: <Submit></Submit>,
             }
 
 
