@@ -8,7 +8,7 @@ const SubmittedAsignment = () => {
 
     const [myAsignment, setMyAsignment] = useState([])
 
-    const url = 'http://localhost:5000/myAsignments'
+    const url = 'https://online-group-study-server-l5x89tp06-alif0013s-projects.vercel.app/myAsignments'
 
     useEffect(() => {
         fetch(url)
@@ -49,7 +49,8 @@ const SubmittedAsignment = () => {
                                     <td>{asignment.title}</td>
                                     <td>{asignment.email}</td>
                                     <td>{asignment.marks}</td>
-                                    <td> <Link to={'/'}><button className="btn btn-outline border-[blue]">Give Mark</button> </Link></td>
+                                    <td> <Link to={`/givemark/${asignment._id}`}><button className="btn btn-outline border-[blue]">Give Mark</button> </Link></td>
+                                    {/* <td> <Link to={'/givemark'}><button className="btn btn-outline border-[blue]">Give Mark</button> </Link></td> */}
                                     
 
                                 </tr>

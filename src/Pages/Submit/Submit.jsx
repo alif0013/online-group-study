@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useLoaderData } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Submit = () => {
 
     const { user } = useContext(AuthContext)
    
     
+
+
     const handleSubmit = e =>{
         e.preventDefault();
         
@@ -15,8 +18,24 @@ const Submit = () => {
         const note = form.note.value;
         const userEmail = user.email;  
         const userName = user.displayName;  
-        const Submit = { note,link, userEmail, userName};
+        const submitAsignment = { note,link, userEmail, userName};
         console.log(Submit);
+
+        fetch('https://online-group-study-server-l5x89tp06-alif0013s-projects.vercel.app/submitAsignment',{
+            method: 'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(submitAsignment)
+
+           })
+           .then(res => res.json())
+           .then(data =>{
+            console.log(data);
+            if(data.insertedId){
+                toast.success('Submit Asignment Successfully!')
+            }
+           })
 
 
 

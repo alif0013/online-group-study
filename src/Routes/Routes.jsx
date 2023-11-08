@@ -12,6 +12,7 @@ import ViewAsignment from '../Pages/ViewAsignment/ViewAsignment';
 import UpdateAsignment from '../Pages/updateAsignment/UpdateAsignment';
 import PrivateRoutes from './PrivateRoutes';
 import Submit from '../Pages/Submit/Submit';
+import GiveMark from '../Pages/giveMark/GiveMark';
 
 const myCreatedRoutes = createBrowserRouter([
     {
@@ -26,11 +27,11 @@ const myCreatedRoutes = createBrowserRouter([
             {
                 path: 'asignments',
                 element: <Asignments></Asignments>,
-                loader: ()=> fetch('http://localhost:5000/asignments')
+                loader: ()=> fetch('https://online-group-study-server-l5x89tp06-alif0013s-projects.vercel.app/asignments')
              },
             {
                 path: 'creatasignment',
-                element: <CreatAsignment></CreatAsignment>
+                element: <PrivateRoutes><CreatAsignment></CreatAsignment></PrivateRoutes>
             },
             {
                 path: 'myasignment',
@@ -52,16 +53,22 @@ const myCreatedRoutes = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <ViewAsignment></ViewAsignment>,
-                loader: ({params}) => fetch(`http://localhost:5000/asignments/${params.id}`)
+                loader: ({params}) => fetch(`https://online-group-study-server-l5x89tp06-alif0013s-projects.vercel.app/asignments/${params.id}`)
             },
             {
                 path: '/update/:id',
-                element: <UpdateAsignment></UpdateAsignment>,
-                loader: ({params}) => fetch(`http://localhost:5000/asignments/${params.id}`)
+                element: <PrivateRoutes><UpdateAsignment></UpdateAsignment></PrivateRoutes>,
+                loader: ({params}) => fetch(`https://online-group-study-server-l5x89tp06-alif0013s-projects.vercel.app/asignments/${params.id}`)
             },
             {
                 path: '/submit',
                 element: <Submit></Submit>,
+            },
+            {
+                path: '/givemark/:id',
+                element: <GiveMark></GiveMark>,
+                // loader: ()=> fetch('https://online-group-study-server-l5x89tp06-alif0013s-projects.vercel.app/submitAsignment')
+                loader: ({params}) => fetch(`https://online-group-study-server-l5x89tp06-alif0013s-projects.vercel.app/submitAsignment/${params.id}`)
             }
 
 

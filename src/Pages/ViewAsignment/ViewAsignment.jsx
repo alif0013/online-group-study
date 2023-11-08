@@ -12,7 +12,7 @@ const ViewAsignment = () => {
 
     const handleTakeAsignment = () =>{
         // send data to the server
-        fetch('http://localhost:5000/myAsignments',{
+        fetch('https://online-group-study-server-l5x89tp06-alif0013s-projects.vercel.app/myAsignments',{
             method: 'POST',
             headers:{
                 'content-type': 'application/json'

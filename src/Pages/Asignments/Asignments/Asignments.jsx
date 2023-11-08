@@ -20,7 +20,7 @@ const Asignments = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/asignments/${id}`, {
+                fetch(`https://online-group-study-server-l5x89tp06-alif0013s-projects.vercel.app/asignments/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

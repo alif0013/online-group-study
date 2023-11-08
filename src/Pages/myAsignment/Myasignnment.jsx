@@ -7,7 +7,7 @@ const Myasignnment = () => {
 
     const [myAsignment, setMyAsignment] = useState([])
 
-    const url = `http://localhost:5000/myAsignments?email=${user?.email}`
+    const url = `https://online-group-study-server-l5x89tp06-alif0013s-projects.vercel.app/myAsignments?email=${user?.email}`
 
     useEffect(() => {
         fetch(url)

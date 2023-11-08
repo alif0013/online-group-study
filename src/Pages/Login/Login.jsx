@@ -11,8 +11,8 @@ const Login = () => {
 
     const {signInWithGoogle, signIn} = useContext(AuthContext)
 
-    // const location = useLocation();
-    // const navigate = useNavigate();
+    const location = useLocation();
+    const navigate = useNavigate();
 
 
     const handleGoogleSignIn = () => {
@@ -44,12 +44,12 @@ const Login = () => {
                 toast.success('You logged in successfully');
 
                 // private route navigate after login
-                // navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
 
                 toast.error("your email and password doesn't match please check and try again!")
-                // toast.error('Login failed: ' + error.message);
+                toast.error('Login failed: ' + error.message);
 
             })
 
