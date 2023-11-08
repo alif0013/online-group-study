@@ -39,7 +39,7 @@ const myCreatedRoutes = createBrowserRouter([
             },
             {
                 path: 'submittedasignment',
-                element: <SubmittedAsignment></SubmittedAsignment>
+                element: <PrivateRoutes><SubmittedAsignment></SubmittedAsignment></PrivateRoutes>
             },
             {
                 //out side of children
