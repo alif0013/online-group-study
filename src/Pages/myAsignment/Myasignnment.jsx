@@ -20,7 +20,6 @@ const Myasignnment = () => {
           <div>
             <h1 className='font-bold text-4xl text-center my-10'>My Asignment</h1>
           </div>
-
             <div>
                 <div className="overflow-x-auto">
                     <table className="table">
